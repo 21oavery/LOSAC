@@ -19,8 +19,9 @@
 #define LOSAC_CONSTD 8
 #define LOSAC_IMP 9
 
-#define losac_opHasVarP2(x) ((x < 7) && (x != LOSAC_OPNONE))
-#define losac_opHasVarP3(x) losac_opHasVarP2(x)
+#define losac_opHasVarP2(x) (x < 7)
+#define losac_opHasVarP3(x) (losac_opHasVarP2(x) && (x != LOSAC_OPNONE))
+#define losac_opIsConst(x) (x >= 7)
 
 #define LOSAC_CALC 0
 #define LOSAC_FUNC 1
@@ -77,3 +78,7 @@ unsigned long detectFault(struct losac_task *in) {
     }
     return in->s;
 }
+
+void carryConstant(struct losac_task *in) {
+    for (unsigned long i = 0; i < in->s; i++) {
+        if (in->data[i]
