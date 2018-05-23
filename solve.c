@@ -81,4 +81,3 @@ unsigned long detectFault(struct losac_task *in) {
 
 void carryConstant(struct losac_task *in) {
     for (unsigned long i = 0; i < in->s; i++) {
-        if (in->data[i]
