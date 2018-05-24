@@ -33,7 +33,8 @@ struct losac_statement {
             unsigned long p2;
             unsigned long p3;
         } p;
-        double d;
+        long di;
+        double dd;
     } pd;
     unsigned long p1;
     unsigned char type;
@@ -79,5 +80,7 @@ unsigned long detectFault(struct losac_task *in) {
     return in->s;
 }
 
+// From A = XXX, B = XXX replaces A with B
 void carryConstant(struct losac_task *in) {
     for (unsigned long i = 0; i < in->s; i++) {
+        in->data[i].
